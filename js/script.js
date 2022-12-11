@@ -15,8 +15,6 @@ if (navigator.serviceWorker) {
   })
 }
 
-
-
 ;("use strict")
 
 if (navigator.serviceWorker) {
