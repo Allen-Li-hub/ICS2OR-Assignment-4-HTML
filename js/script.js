@@ -10,23 +10,56 @@
  * Check servie worker.
  */
 if (navigator.serviceWorker) {
-  navigator.serviceWorker.register("/ICS2O-Unit5-01-HTML/sw.js", {
-    scope: "/ICS2O-Unit5-01-HTML/",
+  navigator.serviceWorker.register("/ICS2OR-Assignment-4-HTML/sw.js", {
+    scope: "/ICS2OR-Assignment-4-HTML/",
   })
 }
 
-const randomNumber = Math.floor(Math.random() * 6) + 1
 
-function updateSliderValue(valueFromSlider) {
-  document.getElementById("slider-value").innerHTML = valueFromSlider
 
-  if (valueFromSlider == randomNumber) {
-    document.getElementById("answer").innerHTML =
-      "the answer was, " + randomNumber + "!" + " You got it! Excellent."
+;("use strict")
+
+if (navigator.serviceWorker) {
+  navigator.serviceWorker.register("/ICS2OR-Assignment-4/sw.js", {
+    scope: "/ICS2OR-Assignment-4/",
+  })
+}
+
+/**
+ * This function displays an alert.
+ * Words
+ */
+function calculate() {
+  let userSize = document.getElementById("size").value
+  let userTopings = document.getElementById("topings").value
+
+  let sizePrice = 0
+  let topingPrice = 0
+
+  if (userSize == "Small") {
+    sizePrice = 30.0
+  } else if (userSize == "Medium") {
+    sizePrice = 35.0
+  } else if (userSize == "Large") {
+    sizePrice = 40.0
+  } else if (userSize == "Extra-Large") {
+    sizePrice = 43.0
+  } else {
+    document.getElementById("ChocolateCakeSize").innerHTML = "Error"
   }
 
-  if (valueFromSlider != randomNumber) {
-    document.getElementById("answer").innerHTML =
-      "Sorry the answer was, " + randomNumber + "!" + " please try again."
+  if (userTopings == "Caramel") {
+    topingPrice = 3.0
+  } else if (userTopings == "Rich-Chocolate-Sauce") {
+    topingPrice = 10.0
+  } else if (userTopings == "Ice-Cream-Scoop") {
+    topingPrice = 5.0
+  } else {
+    document.getElementById("Topings").innerHTML = "Error"
   }
+
+  let totalPrice = sizePrice + topingPrice
+
+  document.getElementById("total").innerHTML =
+    "Your total will be $" + totalPrice + "! Thanks for consult!"
 }
