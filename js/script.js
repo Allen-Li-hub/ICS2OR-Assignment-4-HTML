@@ -20,8 +20,8 @@ if (navigator.serviceWorker) {
 ;("use strict")
 
 if (navigator.serviceWorker) {
-  navigator.serviceWorker.register("/ICS2OR-Assignment-4/sw.js", {
-    scope: "/ICS2OR-Assignment-4/",
+  navigator.serviceWorker.register("/ICS2OR-Assignment-4-HTML/sw.js", {
+    scope: "/ICS2OR-Assignment-4-HTML/",
   })
 }
 
